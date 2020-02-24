@@ -1,6 +1,6 @@
 import News from './models/News';
 import * as newsView from './views/newsView';
-import { elements } from './views/base';
+import * as anotherView from './views/anotherView';
 
 /**
  * INIT
@@ -23,3 +23,15 @@ const init = async () => {
 
 init();
 
+window.addEventListener('click', e => {
+  if (e.target.matches('.btn-another')) {
+    const id = e.target.closest('.article').id
+    console.log(id);
+    const anotherArticles = state.news.articles.slice(6);
+    const article = anotherArticles[Math.floor(Math.random() * anotherArticles.length)];
+    anotherView.renderAnotherArticle(id, article);
+  }
+  
+
+
+})

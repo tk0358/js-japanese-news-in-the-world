@@ -1,4 +1,3 @@
 export const elements = {
-  articles: document.querySelector('.articles'),
-  another: document.querySelector('.btn-another')
+  articles: document.querySelector('.articles')
 }

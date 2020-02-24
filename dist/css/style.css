@@ -1,3 +1,7 @@
 .btn-another {
   cursor: pointer;
 }
+
+.row {
+  margin-bottom: 1rem;
+}
