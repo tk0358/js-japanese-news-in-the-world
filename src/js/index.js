@@ -1,6 +1,7 @@
 import News from './models/News';
 import * as newsView from './views/newsView';
 import * as anotherView from './views/anotherView';
+import { elements } from './views/base';
 
 /**
  * INIT
@@ -24,6 +25,11 @@ const init = async () => {
 
 init();
 
+
+/**
+ * ANOTHER BUTTON
+ */
+
 window.addEventListener('click', e => {
   if (e.target.matches('.btn-another')) {
     const id = e.target.closest('.article').id
@@ -35,7 +41,15 @@ window.addEventListener('click', e => {
     anotherView.renderAnotherArticle(id, article);
     state.count++; 
   }
-  
+})
 
 
+/**
+ * NEXT PAGE BUTTON
+ */
+
+elements.next.addEventListener('click', e => {
+  if (state.count > 94) state.count = 0;
+  newsView.renderArticles(state.news.articles.slice(state.count, state.count + 6));
+  state.count += 6;
 })

@@ -1,4 +1,15 @@
+h1 {
+  display: inline-block;
+}
+
 .btn-another {
+  cursor: pointer;
+}
+
+.btn-nextpage {
+  display: block;
+  float: right;
+  margin-top: 8px;
   cursor: pointer;
 }
 
