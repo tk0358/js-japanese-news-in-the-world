@@ -14,6 +14,7 @@ const init = async () => {
   try {
     await state.news.getResults();
     newsView.renderArticles(state.news.articles.slice(0, 6));
+    state.count = 6;
   } catch(err) {
     alert('Something error has happened.')
     console.log(err);
@@ -27,9 +28,12 @@ window.addEventListener('click', e => {
   if (e.target.matches('.btn-another')) {
     const id = e.target.closest('.article').id
     console.log(id);
-    const anotherArticles = state.news.articles.slice(6);
-    const article = anotherArticles[Math.floor(Math.random() * anotherArticles.length)];
+    // const anotherArticles = state.news.articles.slice(6);
+    // const article = anotherArticles[Math.floor(Math.random() * anotherArticles.length)];
+    if (state.count > 99) state.count = 0;
+    const article = state.news.articles[state.count];
     anotherView.renderAnotherArticle(id, article);
+    state.count++; 
   }
   
 

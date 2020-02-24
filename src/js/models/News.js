@@ -8,7 +8,8 @@ export default class News {
       const response = await newsapi.v2.everything({
         q: 'japan',
         language: 'en',
-        sortBy: 'relevancy'
+        sortBy: 'relevancy',
+        pageSize: 100
       })
       this.articles = response.articles;
     } catch (err) {
